@@ -29,12 +29,19 @@ header.masthead {
     background-attachment: scroll;
     background-size: cover;
 
-    @media (min-width: 992px) {
-    background-image: image-set(
-        url("/assets/img/h2-1920.avif") 1x,
-        url("/assets/img/h2-1920.avif") 2x
-    );
-}
+     @media (min-width: 992px) {
+        background-image:
+            linear-gradient(
+                to bottom,
+                #{fade-out($primary, 0.6)} 0%,
+                #{fade-out($primary, 0.6)} 100%
+            ),
+            image-set(
+                url("/assets/img/h2-1920.avif") 1x,
+                url("/assets/img/h2-1920.avif") 2x
+            );
+    }
+
 
 
     h1 {
@@ -61,7 +68,7 @@ header.masthead {
             font-size: 4.5rem;
         }
     }
-}
+ }
 
 // 
 // Masthead
