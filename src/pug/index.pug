@@ -24,10 +24,14 @@ html(lang='en')
             link(href='https://fonts.googleapis.com/css?family=Nunito Sans:300,400,400i,700,700i,900&display=swap', rel='stylesheet')
 
         // Core theme CSS (includes Bootstrap)
-        link(rel='stylesheet' href='/css/critical.css')
+        // Critical CSS — load without blocking rendering
+        link(rel="preload" href="/css/critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'")
+        noscript
+            link(rel="stylesheet" href="/css/critical.css")
+
             
         <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-        link(rel="preload" fetchpriority="high" as="image" href="/assets/img/h2-1920.avif" type="image/avif" crossorigin="anonymous")
+        link(rel="preload" fetchpriority="high" as="image" href="/assets/img/h2-800.avif" type="image/avif" crossorigin="anonymous")
         
 
         // Google Tag Manager
