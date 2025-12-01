@@ -9,10 +9,17 @@ header.masthead {
     // replace the masthead.jpg image in the /assets/img directory to change the image
     // if the image name change, make sure to update the url path below!
 
-    background: linear-gradient(to bottom,
-        #{fade-out($primary, 0.6)} 0%,
-        #{fade-out($primary, 0.6)} 100%),
-    url("/assets/img/h2.jpg");
+    background: 
+        linear-gradient(
+            to bottom,
+            #{fade-out($primary, 0.6)} 0%,
+            #{fade-out($primary, 0.6)} 100%
+        ),
+        image-set(
+            url("/assets/img/h2-800.avif") 1x,
+            url("/assets/img/h2-1920.avif") 2x
+        );
+
 
     //background-image: url("../assets/img/h3.jpg");
     //background-color: $primary;
@@ -21,6 +28,14 @@ header.masthead {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+
+    @media (min-width: 992px) {
+    background-image: image-set(
+        url("/assets/img/h2-1920.avif") 1x,
+        url("/assets/img/h2-1920.avif") 2x
+    );
+}
+
 
     h1 {
         font-size: 2.25rem;
