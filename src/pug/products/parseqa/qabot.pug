@@ -51,14 +51,32 @@ html(lang='en')
         include /pug/includes/menu.pug
 
 
-        // Producthead
         header.prodhead 
-            .container.px-4.px-lg-5.h-100
-                .row.gx-4.gx-lg-5.h-100
-                    .col-lg-8.align-self-end    
+            .container.px-4.px-lg-5
+                .row.gx-5.align-items-center
+                    // LEFT TEXT — 6 columns
+                    .col-lg-6.col-md-12.text-section
                         h1.text-white.font-weight-bold ParseQa QABot
                         h5.text-white.mt-4 Unlock the Power of Your Organization's Knowledge.
-                    .col-lg-8.align-self-baseline.mt-4
+
+                    // RIGHT VIDEO — 6 columns
+                    .col-lg-6.col-md-12
+                        .hero-video-wrapper
+                            .hero-video-card
+                                video.hero-video(
+                                    autoplay
+                                    loop
+                                    muted
+                                    playsinline
+                                )
+                                    source(src="/assets/video/parseqa-animation.mp4" type="video/mp4")
+
+
+
+
+
+
+
         
 
         // About

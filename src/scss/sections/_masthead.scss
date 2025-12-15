@@ -53,45 +53,45 @@ header.masthead {
 // 
 
 header.prodhead {
-    padding-top: 10rem;
-    padding-bottom: calc(10rem - #{$navbar-height});
-
-    // replace the masthead.jpg image in the /assets/img directory to change the image
-    // if the image name change, make sure to update the url path below!
-
-    background-image: url("/assets/img/prod_banner.jpg");
-    background-color: $primary;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    background: url("/assets/img/prod_banner.jpg");  // Clean blue hero background
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     background-size: cover;
+    background-position: center;
+
+    position: relative;        // required for absolute video placement
+    height: 580px;             // ⭐ FIXED HEIGHT
+    min-height: 520px;
+    max-height: 800px;
+
+    display: flex;
+    align-items: center;
 
     h1 {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
+        color: #fff;
     }
 
-    @include media-breakpoint-up(lg) {
-        height: 50vh;
-        min-height: 25rem;
-        padding-top: $navbar-height;
-        padding-bottom: 0;
+    p {
+        color: rgba(255,255,255,0.85);
+    }
 
-        p {
-            font-size: 1.15rem;
-        }
+    @include media-breakpoint-up(lg) {                            // Allow natural height with video
+        padding-top: 10rem;
+        padding-bottom: 10rem;
 
         h1 {
-            font-size: 2rem;
+            font-size: 3rem;
         }
     }
 
     @include media-breakpoint-up(xl) {
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.75rem;
         }
     }
 }
+
 
 header.simplehead {
     padding-top: 10rem;
@@ -133,3 +133,5 @@ header.simplehead {
         }
     }
 }
+
+
