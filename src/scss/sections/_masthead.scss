@@ -53,44 +53,15 @@ header.masthead {
 // 
 
 header.prodhead {
-    background: url("/assets/img/prod_banner.jpg");  // Clean blue hero background
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-size: cover;
-    background-position: center;
-
-    position: relative;        // required for absolute video placement
-    height: 580px;             // ⭐ FIXED HEIGHT
-    min-height: 520px;
-    max-height: 800px;
-
-    display: flex;
-    align-items: center;
-
-    h1 {
-        font-size: 2.5rem;
-        color: #fff;
-    }
-
-    p {
-        color: rgba(255,255,255,0.85);
-    }
-
-    @include media-breakpoint-up(lg) {                            // Allow natural height with video
-        padding-top: 10rem;
-        padding-bottom: 10rem;
-
-        h1 {
-            font-size: 3rem;
-        }
-    }
-
-    @include media-breakpoint-up(xl) {
-        h1 {
-            font-size: 3.75rem;
-        }
+    // Styles are now in inscripta.scss for better organization
+    // Keep this minimal here
+    
+    h1, h5, p {
+        position: relative;
+        z-index: 2;
     }
 }
+
 
 
 header.simplehead {
