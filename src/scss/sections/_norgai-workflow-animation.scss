@@ -406,7 +406,7 @@
 /* Core Label */
 .core-label {
   position: absolute;
-  bottom: -4rem;
+  bottom: -8rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -441,6 +441,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-size: 40px;
 }
 
 /* Value Section */
@@ -623,7 +624,7 @@
     bottom: auto;
     left: auto;
     transform: none;
-    margin-top: 1.25rem;
+    margin-top: 1.8rem;
     justify-content: center;
     
     // Reset the animation transform to match
