@@ -2,4 +2,4 @@
 
 const renderSitemap = require('./render-sitemap');
 
-renderCname();
+renderSitemap();
