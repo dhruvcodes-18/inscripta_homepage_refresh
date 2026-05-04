@@ -5,3 +5,6 @@ reference/
 division_issue_backups/
 .gitignore
 Knowledge_Base/
+.claude
+design-system/
+*.mp4
