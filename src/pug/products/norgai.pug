@@ -72,61 +72,27 @@ html(lang='en')
                                     span Learn More
                                     i.fas.fa-arrow-right.ms-2
 
-                        // RIGHT ANIMATION — 7 columns
+                        // RIGHT — Explainer Video
                         .col-lg-6.col-md-12
                             .hero-video-container
-                                .workflow-wrapper   
-                                    .workflow-content
-                                        // Header Badge
-                                        .badge-wrapper.fade-in-item
-                                            .badge.pulse-badge
-                                                span.badge-text FROM RFP TO GO-LIVE
-                                        // Title
-                                        //- h1.title.fade-in-item How NorgAI Streamlines Your Workflow
-
-                                        .steps-container
-                                            // Step 1: Ingest
-                                            .step-wrapper.fade-in-item
-                                                .step-card.step-blue
-                                                    .step-content
-                                                        .step-number.step-number-blue 1
-                                                        .step-text
-                                                            h2.step-title Ingest
-                                                            p.step-description.text-blue RFPs, sales notes, clarifications
-                                                    .glow-effect.glow-blue
-
-                                            // Arrow 1
-                                            .arrow-wrapper.fade-in-item
-                                                .arrow-container
-                                                    svg.arrow-icon.bounce-arrow(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2")
-                                                        polyline(points="6 9 12 15 18 9")
-
-                                            // Step 2: Generate
-                                            .step-wrapper.fade-in-item
-                                                .step-card.step-red
-                                                    .step-content
-                                                        .step-number.step-number-red 2
-                                                        .step-text
-                                                            h2.step-title Generate
-                                                            p.step-description.text-red Structured proposals, use cases, requirements
-                                                    .glow-effect.glow-red
-
-                                            // Arrow 2
-                                            .arrow-wrapper.fade-in-item
-                                                .arrow-container
-                                                    svg.arrow-icon.bounce-arrow.bounce-arrow-2(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2")
-                                                        polyline(points="6 9 12 15 18 9")
-
-                                            // Step 3: Deliver
-                                            .step-wrapper.fade-in-item
-                                                .step-card.step-indigo
-                                                    .step-content
-                                                        .step-number.step-number-indigo 3
-                                                        .step-text
-                                                            h2.step-title Deliver
-                                                            p.step-description.text-blue Implementation-ready SOWs and documentation
-                                                    .glow-effect.glow-indigo
-                                                    .success-pulse
+                                // Explainer video preview
+                                .video-watch-label.fade-in-item
+                                    svg(viewBox="0 0 24 24" fill="currentColor" width="14" height="14")
+                                        path(d="M8 5v14l11-7z")
+                                    span WATCH DEMO
+                                .hero-explainer-video.fade-in-item
+                                    video#explainer-video(
+                                        src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/NorgAI%20Explainer%20v3.mp4"
+                                        poster="/assets/img/products/norgai.png"
+                                        muted
+                                        playsinline
+                                        preload="none"
+                                    )
+                                    .video-play-overlay#explainer-overlay(role="button" aria-label="Play explainer video")
+                                        .play-btn-circle
+                                            svg.play-icon(viewBox="0 0 24 24" fill="currentColor")
+                                                path(d="M8 5v14l11-7z")
+                                    .video-caption NorgAI Explainer &middot; 2 min
 
                         // Trust indicators
                         .hero-trust.mt-4
@@ -634,6 +600,26 @@ html(lang='en')
 
 
 
+            // Walkthrough Video Section
+            section#walkthrough-section.walkthrough-section
+                .container.px-4.px-lg-5
+                    .walkthrough-header.text-center.mb-5
+                        .section-badge-wrapper.mb-3
+                            .badge.pulse-badge
+                                span.badge-text PRODUCT WALKTHROUGH
+                        h2.walkthrough-title See NorgAI in Action
+                    .walkthrough-video-wrapper
+                        .walkthrough-video-container
+                            video#walkthrough-video(
+                                src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/norgai_walkthrough_spedup%20(1).mp4"
+                                playsinline
+                                preload="metadata"
+                            )
+                            .video-play-overlay#walkthrough-overlay(role="button" aria-label="Play walkthrough video")
+                                .play-btn-circle
+                                    svg.play-icon(viewBox="0 0 24 24" fill="currentColor")
+                                        path(d="M8 5v14l11-7z")
+
             // Modern PS Tasks Section
             section#ps-tasks.page-section
                 .container.px-4.px-lg-5
@@ -829,6 +815,21 @@ html(lang='en')
                                             | Send us an Email
 
 
+
+        // Explainer Video Lightbox Modal
+        #explainer-modal.explainer-modal
+            .explainer-modal-backdrop
+            .explainer-modal-dialog
+                button.explainer-modal-close#explainer-modal-close(aria-label="Close video")
+                    svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5")
+                        line(x1="18" y1="6" x2="6" y2="18")
+                        line(x1="6" y1="6" x2="18" y2="18")
+                .explainer-modal-video-wrap
+                    video#explainer-modal-video(
+                        src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/NorgAI%20Explainer%20v3.mp4"
+                        controls
+                        playsinline
+                    )
 
         // Footer
         include /pug/includes/footer_new.pug

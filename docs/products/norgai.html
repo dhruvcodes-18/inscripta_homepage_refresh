@@ -84,71 +84,22 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- RIGHT ANIMATION — 7 columns-->
+                        <!-- RIGHT — Explainer Video-->
                         <div class="col-lg-6 col-md-12">
                             <div class="hero-video-container">
-                                <div class="workflow-wrapper">
-                                    <div class="workflow-content">
-                                        <!-- Header Badge-->
-                                        <div class="badge-wrapper fade-in-item">
-                                            <div class="badge pulse-badge"><span class="badge-text">FROM RFP TO GO-LIVE</span></div>
-                                        </div>
-                                        <!-- Title-->
-                                        <div class="steps-container">
-                                            <!-- Step 1: Ingest-->
-                                            <div class="step-wrapper fade-in-item">
-                                                <div class="step-card step-blue">
-                                                    <div class="step-content">
-                                                        <div class="step-number step-number-blue">1</div>
-                                                        <div class="step-text">
-                                                            <h2 class="step-title">Ingest</h2>
-                                                            <p class="step-description text-blue">RFPs, sales notes, clarifications</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="glow-effect glow-blue"></div>
-                                                </div>
-                                            </div>
-                                            <!-- Arrow 1-->
-                                            <div class="arrow-wrapper fade-in-item">
-                                                <div class="arrow-container">
-                                                    <svg class="arrow-icon bounce-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                                </div>
-                                            </div>
-                                            <!-- Step 2: Generate-->
-                                            <div class="step-wrapper fade-in-item">
-                                                <div class="step-card step-red">
-                                                    <div class="step-content">
-                                                        <div class="step-number step-number-red">2</div>
-                                                        <div class="step-text">
-                                                            <h2 class="step-title">Generate</h2>
-                                                            <p class="step-description text-red">Structured proposals, use cases, requirements</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="glow-effect glow-red"></div>
-                                                </div>
-                                            </div>
-                                            <!-- Arrow 2-->
-                                            <div class="arrow-wrapper fade-in-item">
-                                                <div class="arrow-container">
-                                                    <svg class="arrow-icon bounce-arrow bounce-arrow-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                                </div>
-                                            </div>
-                                            <!-- Step 3: Deliver-->
-                                            <div class="step-wrapper fade-in-item">
-                                                <div class="step-card step-indigo">
-                                                    <div class="step-content">
-                                                        <div class="step-number step-number-indigo">3</div>
-                                                        <div class="step-text">
-                                                            <h2 class="step-title">Deliver</h2>
-                                                            <p class="step-description text-blue">Implementation-ready SOWs and documentation</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="glow-effect glow-indigo"></div>
-                                                    <div class="success-pulse"></div>
-                                                </div>
-                                            </div>
+                                <!-- Explainer video preview-->
+                                <div class="video-watch-label fade-in-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5v14l11-7z"></path></svg>
+                                    <span>WATCH DEMO</span>
+                                </div>
+                                <div class="hero-explainer-video fade-in-item">
+                                    <video id="explainer-video" src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/NorgAI%20Explainer%20v3.mp4" poster="/assets/img/products/norgai.png" muted playsinline preload="none"></video>
+                                    <div class="video-play-overlay" id="explainer-overlay" role="button" aria-label="Play explainer video">
+                                        <div class="play-btn-circle">
+                                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
                                         </div>
                                     </div>
+                                    <div class="video-caption">NorgAI Explainer &middot; 2 min</div>
                                 </div>
                             </div>
                         </div>
@@ -703,6 +654,27 @@
                     </div>
                 </div>
             </section>
+            <!-- Walkthrough Video Section-->
+            <section class="walkthrough-section" id="walkthrough-section">
+                <div class="container px-4 px-lg-5">
+                    <div class="walkthrough-header text-center mb-5">
+                        <div class="section-badge-wrapper mb-3">
+                            <div class="badge pulse-badge"><span class="badge-text">PRODUCT WALKTHROUGH</span></div>
+                        </div>
+                        <h2 class="walkthrough-title">See NorgAI in Action</h2>
+                    </div>
+                    <div class="walkthrough-video-wrapper">
+                        <div class="walkthrough-video-container">
+                            <video id="walkthrough-video" src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/norgai_walkthrough_spedup%20(1).mp4" playsinline preload="metadata"></video>
+                            <div class="video-play-overlay" id="walkthrough-overlay" role="button" aria-label="Play walkthrough video">
+                                <div class="play-btn-circle">
+                                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Modern PS Tasks Section-->
             <section class="page-section" id="ps-tasks">
                 <div class="container px-4 px-lg-5">
@@ -916,6 +888,19 @@
                 </div>
             </section>
         </main>
+        <!-- Explainer Video Lightbox Modal-->
+        <div class="explainer-modal" id="explainer-modal">
+            <div class="explainer-modal-backdrop"></div>
+            <div class="explainer-modal-dialog">
+                <button class="explainer-modal-close" id="explainer-modal-close" aria-label="Close video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="explainer-modal-video-wrap"><video id="explainer-modal-video" src="https://pub-af6675d5dab34c49a4e91fe26b8d41f7.r2.dev/Videos/NorgAI%20Explainer%20v3.mp4" controls playsinline></video></div>
+            </div>
+        </div>
         <!-- Footer-->
         <!-- Footer-->
         <footer class="bg-dark py-5 text-white" role="contentinfo">
