@@ -330,6 +330,12 @@ a.feature-card {
   color: #212529;
 }
 
+section#expertise .text-center img.img-main {
+  max-height: 380px;
+  max-width: 60%;
+  width: auto;
+}
+
 .blog-img {
   max-width: 100%;
 }
@@ -4706,7 +4712,7 @@ section#impact-metrics .feature-card-badge i {
     text-decoration: none;
     transition: color 0.2s ease, gap 0.2s ease;
 
-    i { font-size: 0.75rem; transition: transform 0.2s ease; }
+    i { font-size: 0.85rem; transition: transform 0.2s ease; }
 
     &:hover {
         color: $secondary;
@@ -4833,3 +4839,202 @@ section#impact-metrics .feature-card-badge i {
     pointer-events: auto;
     transform: translateY(0);
 }   
+
+#cs-3 .cns-cs-img {
+    object-fit: contain;
+    background: #f4f6fb;
+}
+
+
+
+
+/************************************
+ * CONSULTING STRIP — Homepage
+ ************************************/
+
+.consulting-strip {
+    background: linear-gradient(180deg, #0f172a 0%, #192b80 55%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 15% 50%, rgba(223, 22, 24, 0.08) 0%, transparent 55%),
+            radial-gradient(ellipse at 85% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 55%);
+        pointer-events: none;
+    }
+
+    .container { position: relative; z-index: 1; }
+}
+
+.consulting-strip-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem 3rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $primary, $secondary);
+    }
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+}
+
+.consulting-strip-left {
+    flex: 1;
+
+    .ai-suite-eyebrow {
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    h2 {
+        color: #ffffff;
+        font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+        margin-bottom: 0.75rem;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0;
+    }
+}
+
+.consulting-strip-right {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+
+        .btn-cns-primary {
+        background: rgba(223, 22, 24, 0.2);
+        border: 1px solid rgba(223, 22, 24, 0.4);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(223, 22, 24, 0.15);
+        color: #ffffff;
+
+        &:hover {
+            background: rgba(223, 22, 24, 0.35);
+            border-color: rgba(223, 22, 24, 0.6);
+            box-shadow: 0 8px 30px rgba(223, 22, 24, 0.25);
+            color: #ffffff;
+        }
+        }
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+}
+
+.consulting-strip-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.consulting-strip-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+
+    i { font-size: 0.7rem; opacity: 0.8; }
+}
+
+.cns-cs-cta--lg {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.75rem;
+    background: rgba(25, 43, 128, 0.06);
+    border: 1.5px solid rgba(25, 43, 128, 0.15);
+    border-radius: 50px;
+    gap: 10px;
+
+    i { font-size: 1rem; }
+
+    &:hover {
+        background: rgba(25, 43, 128, 0.1);
+        border-color: rgba(25, 43, 128, 0.3);
+        gap: 14px;
+    }
+}
+
+
+// ── HERO PAIN TICKER ──────────────────────────────────────────
+
+.cns-hero-pain-ticker {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.cns-pain-track {
+    display: flex;
+    width: max-content;
+    animation: cns-pain-scroll 28s linear infinite;
+    gap: 0;
+
+    &:hover { animation-play-state: paused; cursor: default; }
+}
+
+@keyframes cns-pain-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.cns-pain-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 20px;
+    margin: 0 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    i {
+        font-size: 0.75rem;
+        color: $secondary;
+        opacity: 0.85;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+}
