@@ -41,7 +41,9 @@ window.addEventListener('DOMContentLoaded', event => {
     responsiveNavItems.map(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+                if (!responsiveNavItem.hasAttribute('data-bs-toggle')) {
+                    navbarToggler.click();
+                }
             }
         });
     });

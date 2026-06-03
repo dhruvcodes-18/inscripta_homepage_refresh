@@ -386,3 +386,99 @@ fills.forEach(fill => {
     }
 });
 
+// Walkthrough: inline play/pause toggle
+function initVideoPlayer(videoId, overlayId) {
+    var video = document.getElementById(videoId);
+    var overlay = document.getElementById(overlayId);
+    if (!video || !overlay) return;
+
+    overlay.addEventListener('click', function () {
+        overlay.classList.add('hidden');
+        video.controls = true;
+        video.play();
+    });
+
+    video.addEventListener('ended', function () {
+        video.controls = false;
+        overlay.classList.remove('hidden');
+    });
+}
+
+// Explainer: lightbox modal with spring animation + audio fix
+(function () {
+    var CLOSE_MS   = 240;
+    var modal      = document.getElementById('explainer-modal');
+    var modalVideo = document.getElementById('explainer-modal-video');
+    var overlay    = document.getElementById('explainer-overlay');
+    var heroThumb  = document.getElementById('explainer-video');
+    var backdrop   = modal ? modal.querySelector('.explainer-modal-backdrop') : null;
+    var dialog     = modal ? modal.querySelector('.explainer-modal-dialog')   : null;
+    var closeBtn   = document.getElementById('explainer-modal-close');
+    var isOpen     = false;
+
+    function openModal() {
+        if (!modal || isOpen) return;
+        isOpen = true;
+        modal.classList.remove('is-closing');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (heroThumb) heroThumb.pause();
+        if (modalVideo) modalVideo.play();
+    }
+
+    function closeModal() {
+        if (!modal || !isOpen) return;
+        modal.classList.add('is-closing');
+        if (modalVideo) { modalVideo.pause(); modalVideo.currentTime = 0; }
+        setTimeout(function () {
+            modal.classList.remove('active', 'is-closing');
+            document.body.style.overflow = '';
+            isOpen = false;
+        }, CLOSE_MS);
+    }
+
+    // Close when user moves to another window
+    window.addEventListener('blur', closeModal);
+
+    // Fix: mute during seeking to prevent double-audio browser artifact
+    if (modalVideo) {
+        modalVideo.addEventListener('seeking', function () { modalVideo.muted = true; });
+        modalVideo.addEventListener('seeked',  function () { modalVideo.muted = false; });
+    }
+
+    // Prevent clicks inside dialog from reaching backdrop
+    if (dialog) dialog.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    if (overlay)  overlay.addEventListener('click', openModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); closeModal(); });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+    initVideoPlayer('walkthrough-video', 'walkthrough-overlay');
+
+    var wt = document.getElementById('walkthrough-video');
+    var wo = document.getElementById('walkthrough-overlay');
+
+    function pauseWalkthrough() {
+        if (!wt || wt.paused) return;
+        wt.pause();
+        wt.controls = false;
+        if (wo) wo.classList.remove('hidden');
+    }
+
+    // Pause when scrolled out of view (less than 25% visible)
+    if (wt && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            if (!entries[0].isIntersecting) pauseWalkthrough();
+        }, { threshold: 0.25 }).observe(wt);
+    }
+
+    // Pause when user switches to another window
+    window.addEventListener('blur', pauseWalkthrough);
+});
+
